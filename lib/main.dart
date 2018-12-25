@@ -1,11 +1,11 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 2:57 PM
+ * Created by Yudi Setiawan on 12/25/18 9:30 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 2:57 PM
+ * Last modified 12/25/18 9:28 PM
  */
 
-import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
 
 void main() => runApp(MainApp());
 
@@ -24,6 +24,107 @@ class MainAppState extends State<MainApp> {
   final Color _buttonHighlightColor = Colors.grey[800];
   final Color _buttonColorGrey = Colors.grey[500];
   final Color _textColorWhite = Colors.white;
+
+  int valueA;
+  int valueB;
+  var sbValue = new StringBuffer();
+  String operator;
+
+  void appendSbValue(String str) => setState(() {
+        bool isDoCalculate = false;
+        if (str == "=") {
+          isDoCalculate = true;
+        } else if (str == "/" || str == "x" || str == "-" || str == "+") {
+          if (operator.isEmpty) {
+            operator = str;
+          } else {
+            isDoCalculate = true;
+          }
+        }
+
+        if (!isDoCalculate) {
+          if (sbValue.toString() == "0" && str != "0") {
+            if (str != "/" && str != "x" && str != "-" && str != "+") {
+              sbValue.clear();
+            }
+            sbValue.write(str);
+          } else {
+            sbValue.write(str);
+          }
+        } else {
+          List<String> values = sbValue.toString().split(operator);
+          if (values.length == 2 && values[0].isNotEmpty && values[1].isNotEmpty) {
+            valueA = int.parse(values[0]);
+            valueB = int.parse(values[1]);
+            sbValue.clear();
+            int total = 0;
+            switch (operator) {
+              case "/":
+                total = valueA ~/ valueB;
+                break;
+              case "x":
+                total = valueA * valueB;
+                break;
+              case "-":
+                total = valueA - valueB;
+                break;
+              case "+":
+                total = valueA + valueB;
+            }
+            sbValue.write(total);
+            if (str == "/" || str == "x" || str == "-" || str == "+") {
+              operator = str;
+              sbValue.write(str);
+            } else {
+              operator = "";
+            }
+          } else {
+            String strValue = sbValue.toString();
+            String lastCharacter = strValue.substring(strValue.length - 1);
+            if (str == "=") {
+              if (lastCharacter == "/" || lastCharacter == "x" ||
+                  lastCharacter == "-" || lastCharacter == "+") {
+                sbValue.clear();
+                sbValue.write(strValue.substring(0, strValue.length - 1));
+              }
+            } else {
+              if (str == "/" || str == "x" || str == "-" || str == "+") {
+                sbValue.clear();
+                sbValue.write(strValue.substring(0, strValue.length - 1) + "" + str);
+                operator = str;
+              }
+            }
+          }
+        }
+      });
+
+  void deleteSbValue() => setState(() {
+        String strValue = sbValue.toString();
+        if (strValue.length > 0) {
+          String lastCharacter = strValue.substring(strValue.length - 1);
+          if (lastCharacter == "/" ||
+              lastCharacter == "x" ||
+              lastCharacter == "-" ||
+              lastCharacter == "+") {
+            operator = "";
+          }
+          strValue = strValue.substring(0, strValue.length - 1);
+          sbValue.clear();
+          sbValue.write(strValue.length == 0 ? "0" : strValue);
+        }
+      });
+
+  void clearSbValue() => setState(() {
+        sbValue.clear();
+        sbValue.write("0");
+      });
+
+  @override
+  void initState() {
+    super.initState();
+    sbValue.write("0");
+    operator = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +150,7 @@ class MainAppState extends State<MainApp> {
                   alignment: Alignment.bottomRight,
                   children: <Widget>[
                     AutoSizeText(
-                      "0",
+                      sbValue.toString(),
                       style: Theme.of(context).textTheme.display2,
                       maxLines: 1,
                     ),
@@ -72,14 +173,14 @@ class MainAppState extends State<MainApp> {
                             color: _buttonColorWhite,
                             highlightColor: _buttonHighlightColor,
                             child: Text(
-                              "AC",
+                              "C",
                               style: TextStyle(
                                 color: _primarySwatchColor,
                                 fontSize: _buttonFontSize,
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button AC pressed
+                              clearSbValue();
                             },
                           ),
                         ),
@@ -93,7 +194,7 @@ class MainAppState extends State<MainApp> {
                               color: _buttonColorGrey,
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button backspace pressed
+                              deleteSbValue();
                             },
                           ),
                         ),
@@ -110,7 +211,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button divide pressed
+                              appendSbValue("/");
                             },
                           ),
                         ),
@@ -135,7 +236,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 7 pressed
+                              appendSbValue("7");
                             },
                           ),
                         ),
@@ -152,7 +253,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 8 pressed
+                              appendSbValue("8");
                             },
                           ),
                         ),
@@ -169,7 +270,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 9 pressed
+                              appendSbValue("9");
                             },
                           ),
                         ),
@@ -179,14 +280,14 @@ class MainAppState extends State<MainApp> {
                             color: _buttonColorWhite,
                             highlightColor: _buttonHighlightColor,
                             child: Text(
-                              "X",
+                              "x",
                               style: TextStyle(
                                 color: _buttonColorGrey,
                                 fontSize: _buttonFontSize,
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button multiplication pressed
+                              appendSbValue("x");
                             },
                           ),
                         ),
@@ -211,7 +312,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 4 pressed
+                              appendSbValue("4");
                             },
                           ),
                         ),
@@ -228,7 +329,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 5 pressed
+                              appendSbValue("5");
                             },
                           ),
                         ),
@@ -245,7 +346,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 6 pressed
+                              appendSbValue("6");
                             },
                           ),
                         ),
@@ -262,7 +363,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button subtraction pressed
+                              appendSbValue("-");
                             },
                           ),
                         ),
@@ -287,7 +388,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 1 pressed
+                              appendSbValue("1");
                             },
                           ),
                         ),
@@ -304,7 +405,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 2 pressed
+                              appendSbValue("2");
                             },
                           ),
                         ),
@@ -321,7 +422,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 3 pressed
+                              appendSbValue("3");
                             },
                           ),
                         ),
@@ -338,7 +439,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button plus pressed
+                              appendSbValue("+");
                             },
                           ),
                         ),
@@ -363,7 +464,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button 0 pressed
+                              appendSbValue("0");
                             },
                           ),
                         ),
@@ -397,7 +498,7 @@ class MainAppState extends State<MainApp> {
                               ),
                             ),
                             onPressed: () {
-                              // TODO: do something in here when button equals pressed
+                              appendSbValue("=");
                             },
                           ),
                         ),
