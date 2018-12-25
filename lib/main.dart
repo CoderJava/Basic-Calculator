@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 9:30 PM
+ * Created by Yudi Setiawan on 12/25/18 9:36 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 9:28 PM
+ * Last modified 12/25/18 9:34 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -452,7 +452,7 @@ class MainAppState extends State<MainApp> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         Expanded(
-                          flex: 2,
+                          flex: 3,
                           child: RaisedButton(
                             color: _buttonColorWhite,
                             highlightColor: _buttonHighlightColor,
@@ -468,7 +468,7 @@ class MainAppState extends State<MainApp> {
                             },
                           ),
                         ),
-                        Expanded(
+                        /*Expanded(
                           flex: 1,
                           child: RaisedButton(
                             color: _buttonColorWhite,
@@ -484,7 +484,7 @@ class MainAppState extends State<MainApp> {
                               // TODO: do something in here when button . pressed
                             },
                           ),
-                        ),
+                        ),*/
                         Expanded(
                           flex: 1,
                           child: RaisedButton(
