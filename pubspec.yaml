@@ -20,6 +20,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  # Resizes text to fit perfectly within its bounds.
+  auto_size_text: ^0.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
