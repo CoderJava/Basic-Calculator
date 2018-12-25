@@ -1,10 +1,11 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 2:12 PM
+ * Created by Yudi Setiawan on 12/25/18 2:51 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 2:12 PM
+ * Last modified 12/25/18 2:48 PM
  */
 
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 void main() => runApp(MainApp());
 
@@ -39,15 +40,17 @@ class MainAppState extends State<MainApp> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child: Padding(
-                padding: EdgeInsets.only(right: _padding, bottom: _padding),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                padding: EdgeInsets.all(_padding),
+                child: Stack(
+                  alignment: Alignment.bottomRight,
                   children: <Widget>[
-                    Text(
+                    AutoSizeText(
                       "0",
                       style: Theme.of(context).textTheme.display2,
+                      maxLines: 1,
                     ),
                   ],
                 ),
