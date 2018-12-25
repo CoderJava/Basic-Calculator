@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 2:02 PM
+ * Created by Yudi Setiawan on 12/25/18 2:12 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 2:02 PM
+ * Last modified 12/25/18 2:12 PM
  */
 
 import 'package:flutter/material.dart';
@@ -15,12 +15,13 @@ class MainApp extends StatefulWidget {
 
 class MainAppState extends State<MainApp> {
   final double _padding = 16.0;
-  final double _buttonFontSize = 20.0;
+  final double _buttonFontSize = 24.0;
   final Color _primarySwatchColor = Colors.orange;
   final Color _titleAppBarColor = Colors.white;
   final Color _buttonColorWhite = Colors.white;
   final Color _buttonHighlightColor = Colors.grey[800];
   final Color _buttonColorGrey = Colors.grey[500];
+  final Color _textColorWhite = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -334,6 +335,65 @@ class MainAppState extends State<MainApp> {
                             ),
                             onPressed: () {
                               // TODO: do something in here when button plus pressed
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: RaisedButton(
+                            color: _buttonColorWhite,
+                            highlightColor: _buttonHighlightColor,
+                            child: Text(
+                              "0",
+                              style: TextStyle(
+                                color: _buttonColorGrey,
+                                fontSize: _buttonFontSize,
+                              ),
+                            ),
+                            onPressed: () {
+                              // TODO: do something in here when button 0 pressed
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: RaisedButton(
+                            color: _buttonColorWhite,
+                            highlightColor: _buttonHighlightColor,
+                            child: Text(
+                              ".",
+                              style: TextStyle(
+                                color: _buttonColorGrey,
+                                fontSize: _buttonFontSize,
+                              ),
+                            ),
+                            onPressed: () {
+                              // TODO: do something in here when button . pressed
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: RaisedButton(
+                            color: _primarySwatchColor,
+                            highlightColor: _buttonHighlightColor,
+                            child: Text(
+                              "=",
+                              style: TextStyle(
+                                color: _textColorWhite,
+                                fontSize: _buttonFontSize,
+                              ),
+                            ),
+                            onPressed: () {
+                              // TODO: do something in here when button equals pressed
                             },
                           ),
                         ),
