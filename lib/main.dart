@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 2:51 PM
+ * Created by Yudi Setiawan on 12/25/18 2:57 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 2:48 PM
+ * Last modified 12/25/18 2:57 PM
  */
 
 import 'package:flutter/material.dart';
@@ -17,6 +17,7 @@ class MainApp extends StatefulWidget {
 class MainAppState extends State<MainApp> {
   final double _padding = 16.0;
   final double _buttonFontSize = 24.0;
+
   final Color _primarySwatchColor = Colors.orange;
   final Color _titleAppBarColor = Colors.white;
   final Color _buttonColorWhite = Colors.white;
