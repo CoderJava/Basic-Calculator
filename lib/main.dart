@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 12/25/18 9:36 PM
+ * Created by Yudi Setiawan on 12/26/18 1:59 PM
  * Copyright (c) 2018. All right reserved.
- * Last modified 12/25/18 9:34 PM
+ * Last modified 12/26/18 1:59 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -53,7 +53,9 @@ class MainAppState extends State<MainApp> {
           }
         } else {
           List<String> values = sbValue.toString().split(operator);
-          if (values.length == 2 && values[0].isNotEmpty && values[1].isNotEmpty) {
+          if (values.length == 2 &&
+              values[0].isNotEmpty &&
+              values[1].isNotEmpty) {
             valueA = int.parse(values[0]);
             valueB = int.parse(values[1]);
             sbValue.clear();
@@ -82,15 +84,18 @@ class MainAppState extends State<MainApp> {
             String strValue = sbValue.toString();
             String lastCharacter = strValue.substring(strValue.length - 1);
             if (str == "=") {
-              if (lastCharacter == "/" || lastCharacter == "x" ||
-                  lastCharacter == "-" || lastCharacter == "+") {
+              if (lastCharacter == "/" ||
+                  lastCharacter == "x" ||
+                  lastCharacter == "-" ||
+                  lastCharacter == "+") {
                 sbValue.clear();
                 sbValue.write(strValue.substring(0, strValue.length - 1));
               }
             } else {
               if (str == "/" || str == "x" || str == "-" || str == "+") {
                 sbValue.clear();
-                sbValue.write(strValue.substring(0, strValue.length - 1) + "" + str);
+                sbValue.write(
+                    strValue.substring(0, strValue.length - 1) + "" + str);
                 operator = str;
               }
             }
@@ -115,6 +120,7 @@ class MainAppState extends State<MainApp> {
       });
 
   void clearSbValue() => setState(() {
+        operator = "";
         sbValue.clear();
         sbValue.write("0");
       });
