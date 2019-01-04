@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 12/26/18 1:59 PM
- * Copyright (c) 2018. All right reserved.
- * Last modified 12/26/18 1:59 PM
+ * Created by Yudi Setiawan on 1/5/19 12:04 AM
+ * Copyright (c) 2019. All right reserved.
+ * Last modified 1/5/19 12:02 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -32,7 +32,15 @@ class MainAppState extends State<MainApp> {
 
   void appendSbValue(String str) => setState(() {
         bool isDoCalculate = false;
-        if (str == "=") {
+        String strValue = sbValue.toString();
+        String lastCharacter = strValue.substring(strValue.length - 1);
+        if ((strValue == "0" && str == "0") ||
+            (lastCharacter == "/" ||
+                lastCharacter == "x" ||
+                lastCharacter == "-" ||
+                lastCharacter == "+" && str == "0")) {
+          return;
+        } else if (str == "=") {
           isDoCalculate = true;
         } else if (str == "/" || str == "x" || str == "-" || str == "+") {
           if (operator.isEmpty) {
@@ -88,6 +96,7 @@ class MainAppState extends State<MainApp> {
                   lastCharacter == "x" ||
                   lastCharacter == "-" ||
                   lastCharacter == "+") {
+                operator = "";
                 sbValue.clear();
                 sbValue.write(strValue.substring(0, strValue.length - 1));
               }
