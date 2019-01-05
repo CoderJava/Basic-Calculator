@@ -1,24 +1,66 @@
 /*
- * Created by Yudi Setiawan on 1/5/19 12:04 AM
+ * Created by Yudi Setiawan on 1/5/19 11:30 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/5/19 12:02 AM
+ * Last modified 1/5/19 11:25 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MainApp());
+final Color _primarySwatchColor = Colors.orange;
+
+void main() => runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: _primarySwatchColor),
+      home: MainApp(),
+    ));
 
 class MainApp extends StatefulWidget {
   @override
   MainAppState createState() => MainAppState();
+
+/*@override
+  TestingTabState createState() => TestingTabState();*/
+}
+
+class TestingTabState extends State<MainApp> {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Basic Calculator",
+            style: TextStyle(color: Colors.white),
+          ),
+          bottom: TabBar(
+            indicatorColor: Colors.white,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white70,
+            tabs: <Widget>[
+              Tab(text: "Calculator"),
+              Tab(text: "Converter"),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit),
+            Icon(Icons.directions_bike),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class MainAppState extends State<MainApp> {
   final double _padding = 16.0;
   final double _buttonFontSize = 24.0;
+  final String _titleAppBar = "Basic Calculator";
 
-  final Color _primarySwatchColor = Colors.orange;
   final Color _titleAppBarColor = Colors.white;
   final Color _buttonColorWhite = Colors.white;
   final Color _buttonHighlightColor = Colors.grey[800];
@@ -143,389 +185,418 @@ class MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: _primarySwatchColor),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Basic Calculator",
-            style: TextStyle(color: _titleAppBarColor),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: buildAppBar(),
+        body: buildTabBar(),
+      ),
+    );
+  }
+
+  buildAppBar() {
+    return AppBar(
+      title: Text(
+        _titleAppBar,
+        style: TextStyle(
+          color: _titleAppBarColor,
+        ),
+      ),
+      bottom: TabBar(
+        indicatorColor: Colors.white,
+        labelColor: Colors.white,
+        unselectedLabelColor: Colors.white70,
+        tabs: <Widget>[
+          Tab(text: "Calculator"),
+          Tab(text: "Converter"),
+        ],
+      ),
+    );
+  }
+
+  buildTabBar() {
+    return TabBarView(
+      children: <Widget>[
+        buildCalculatorLayout(),
+        Center(
+          child: Text("Coming soon"),
+        ),
+      ],
+    );
+  }
+
+  buildCalculatorLayout() {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            padding: EdgeInsets.all(_padding),
+            child: Stack(
+              alignment: Alignment.bottomRight,
+              children: <Widget>[
+                AutoSizeText(
+                  sbValue.toString(),
+                  style: Theme.of(context).textTheme.display2,
+                  maxLines: 1,
+                ),
+              ],
+            ),
           ),
         ),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-                padding: EdgeInsets.all(_padding),
-                child: Stack(
-                  alignment: Alignment.bottomRight,
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    AutoSizeText(
-                      sbValue.toString(),
-                      style: Theme.of(context).textTheme.display2,
-                      maxLines: 1,
+                    Expanded(
+                      flex: 2,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "C",
+                          style: TextStyle(
+                            color: _primarySwatchColor,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          clearSbValue();
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Icon(
+                          Icons.backspace,
+                          color: _buttonColorGrey,
+                        ),
+                        onPressed: () {
+                          deleteSbValue();
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "/",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("/");
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "C",
-                              style: TextStyle(
-                                color: _primarySwatchColor,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              clearSbValue();
-                            },
+              Expanded(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "7",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Icon(
-                              Icons.backspace,
-                              color: _buttonColorGrey,
-                            ),
-                            onPressed: () {
-                              deleteSbValue();
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "/",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("/");
-                            },
-                          ),
-                        ),
-                      ],
+                        onPressed: () {
+                          appendSbValue("7");
+                        },
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "7",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("7");
-                            },
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "8",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "8",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("8");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "9",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("9");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "x",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("x");
-                            },
-                          ),
-                        ),
-                      ],
+                        onPressed: () {
+                          appendSbValue("8");
+                        },
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "4",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("4");
-                            },
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "9",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "5",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("5");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "6",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("6");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "-",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("-");
-                            },
-                          ),
-                        ),
-                      ],
+                        onPressed: () {
+                          appendSbValue("9");
+                        },
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "1",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("1");
-                            },
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "x",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "2",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("2");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "3",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("3");
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "+",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("+");
-                            },
-                          ),
-                        ),
-                      ],
+                        onPressed: () {
+                          appendSbValue("x");
+                        },
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 3,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "0",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("0");
-                            },
-                          ),
-                        ),
-                        /*Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _buttonColorWhite,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              ".",
-                              style: TextStyle(
-                                color: _buttonColorGrey,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              // TODO: do something in here when button . pressed
-                            },
-                          ),
-                        ),*/
-                        Expanded(
-                          flex: 1,
-                          child: RaisedButton(
-                            color: _primarySwatchColor,
-                            highlightColor: _buttonHighlightColor,
-                            child: Text(
-                              "=",
-                              style: TextStyle(
-                                color: _textColorWhite,
-                                fontSize: _buttonFontSize,
-                              ),
-                            ),
-                            onPressed: () {
-                              appendSbValue("=");
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                  ],
+                ),
               ),
-            )
-          ],
-        ),
-      ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "4",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("4");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "5",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("5");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "6",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("6");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "-",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("-");
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "1",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("1");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "2",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("2");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "3",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("3");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "+",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("+");
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 3,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "0",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("0");
+                        },
+                      ),
+                    ),
+                    /*Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _buttonColorWhite,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          ".",
+                          style: TextStyle(
+                            color: _buttonColorGrey,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          // TODO: do something in here when button . pressed
+                        },
+                      ),
+                    ),*/
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        color: _primarySwatchColor,
+                        highlightColor: _buttonHighlightColor,
+                        child: Text(
+                          "=",
+                          style: TextStyle(
+                            color: _textColorWhite,
+                            fontSize: _buttonFontSize,
+                          ),
+                        ),
+                        onPressed: () {
+                          appendSbValue("=");
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }
