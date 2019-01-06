@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/6/19 9:35 AM
+ * Created by Yudi Setiawan on 1/6/19 9:39 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/6/19 9:33 AM
+ * Last modified 1/6/19 9:37 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -258,50 +258,18 @@ class MainAppState extends State<MainApp> {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "C",
-                          style: TextStyle(
-                            color: _primarySwatchColor,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          clearSbValue();
-                        },
-                      ),
+                      child: buildRaisedButtonClearCalculator(),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Icon(
-                          Icons.backspace,
-                          color: _buttonColorGrey,
-                        ),
-                        onPressed: () {
-                          deleteSbValue();
-                        },
-                      ),
+                      child: buildRaisedButtonBackspaceCalculator(),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "/",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("/");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "/",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                   ],
@@ -314,70 +282,34 @@ class MainAppState extends State<MainApp> {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "7",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("7");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "7",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "8",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("8");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "8",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "9",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("9");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "9",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "x",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("x");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "x",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                   ],
@@ -390,70 +322,34 @@ class MainAppState extends State<MainApp> {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "4",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("4");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "4",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "5",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("5");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "5",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "6",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("6");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "6",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "-",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("-");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "-",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                   ],
@@ -466,70 +362,34 @@ class MainAppState extends State<MainApp> {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "1",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("1");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "1",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "2",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("2");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "2",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "3",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("3");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "3",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "+",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("+");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "+",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                   ],
@@ -542,19 +402,10 @@ class MainAppState extends State<MainApp> {
                   children: <Widget>[
                     Expanded(
                       flex: 3,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "0",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("0");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "0",
+                        labelColor: _buttonColorGrey,
+                        buttonColor: _buttonColorWhite,
                       ),
                     ),
                     /*Expanded(
@@ -576,19 +427,10 @@ class MainAppState extends State<MainApp> {
                     ),*/
                     Expanded(
                       flex: 1,
-                      child: RaisedButton(
-                        color: _primarySwatchColor,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          "=",
-                          style: TextStyle(
-                            color: _textColorWhite,
-                            fontSize: _buttonFontSize,
-                          ),
-                        ),
-                        onPressed: () {
-                          appendSbValue("=");
-                        },
+                      child: buildRaisedButtonGeneralCalculator(
+                        label: "=",
+                        labelColor: _textColorWhite,
+                        buttonColor: _primarySwatchColor,
                       ),
                     ),
                   ],
@@ -598,6 +440,58 @@ class MainAppState extends State<MainApp> {
           ),
         )
       ],
+    );
+  }
+
+  RaisedButton buildRaisedButtonGeneralCalculator({
+    String label,
+    Color labelColor,
+    Color buttonColor,
+  }) {
+    return RaisedButton(
+      color: buttonColor,
+      highlightColor: _buttonHighlightColor,
+      child: Text(
+        label,
+        style: TextStyle(
+          color: labelColor,
+          fontSize: _buttonFontSize,
+        ),
+      ),
+      onPressed: () {
+        appendSbValue(label);
+      },
+    );
+  }
+
+  RaisedButton buildRaisedButtonBackspaceCalculator() {
+    return RaisedButton(
+      color: _buttonColorWhite,
+      highlightColor: _buttonHighlightColor,
+      child: Icon(
+        Icons.backspace,
+        color: _buttonColorGrey,
+      ),
+      onPressed: () {
+        deleteSbValue();
+      },
+    );
+  }
+
+  RaisedButton buildRaisedButtonClearCalculator() {
+    return RaisedButton(
+      color: _buttonColorWhite,
+      highlightColor: _buttonHighlightColor,
+      child: Text(
+        "C",
+        style: TextStyle(
+          color: _primarySwatchColor,
+          fontSize: _buttonFontSize,
+        ),
+      ),
+      onPressed: () {
+        clearSbValue();
+      },
     );
   }
 }
