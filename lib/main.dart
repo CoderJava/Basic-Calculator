@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/6/19 9:39 AM
+ * Created by Yudi Setiawan on 1/6/19 9:40 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/6/19 9:37 AM
+ * Last modified 1/6/19 9:40 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -64,7 +64,7 @@ class MainAppState extends State<MainApp> {
   final Color _titleAppBarColor = Colors.white;
   final Color _buttonColorWhite = Colors.white;
   final Color _buttonHighlightColor = Colors.grey[800];
-  final Color _buttonColorGrey = Colors.grey[500];
+  final Color _textColorGrey = Colors.grey;
   final Color _textColorWhite = Colors.white;
 
   int valueA;
@@ -268,7 +268,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "/",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -284,7 +284,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "7",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -292,7 +292,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "8",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -300,7 +300,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "9",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -308,7 +308,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "x",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -324,7 +324,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "4",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -332,7 +332,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "5",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -340,7 +340,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "6",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -348,7 +348,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "-",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -364,7 +364,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "1",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -372,7 +372,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "2",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -380,7 +380,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "3",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -388,7 +388,7 @@ class MainAppState extends State<MainApp> {
                       flex: 1,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "+",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -404,7 +404,7 @@ class MainAppState extends State<MainApp> {
                       flex: 3,
                       child: buildRaisedButtonGeneralCalculator(
                         label: "0",
-                        labelColor: _buttonColorGrey,
+                        labelColor: _textColorGrey,
                         buttonColor: _buttonColorWhite,
                       ),
                     ),
@@ -470,7 +470,7 @@ class MainAppState extends State<MainApp> {
       highlightColor: _buttonHighlightColor,
       child: Icon(
         Icons.backspace,
-        color: _buttonColorGrey,
+        color: _textColorGrey,
       ),
       onPressed: () {
         deleteSbValue();
