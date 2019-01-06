@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/5/19 11:30 AM
+ * Created by Yudi Setiawan on 1/6/19 9:35 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/5/19 11:25 AM
+ * Last modified 1/6/19 9:33 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -77,10 +77,11 @@ class MainAppState extends State<MainApp> {
         String strValue = sbValue.toString();
         String lastCharacter = strValue.substring(strValue.length - 1);
         if ((strValue == "0" && str == "0") ||
-            (lastCharacter == "/" ||
-                lastCharacter == "x" ||
-                lastCharacter == "-" ||
-                lastCharacter == "+" && str == "0")) {
+            ((lastCharacter == "/" ||
+                    lastCharacter == "x" ||
+                    lastCharacter == "-" ||
+                    lastCharacter == "+") &&
+                str == "0")) {
           return;
         } else if (str == "=") {
           isDoCalculate = true;
