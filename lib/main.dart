@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/6/19 9:40 AM
+ * Created by Yudi Setiawan on 1/6/19 11:16 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/6/19 9:40 AM
+ * Last modified 1/6/19 11:15 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -58,7 +58,7 @@ class TestingTabState extends State<MainApp> {
 
 class MainAppState extends State<MainApp> {
   final double _padding = 16.0;
-  final double _buttonFontSize = 24.0;
+  final double _buttonFontSizeCalculator = 24.0;
   final String _titleAppBar = "Basic Calculator";
 
   final Color _titleAppBarColor = Colors.white;
@@ -455,7 +455,7 @@ class MainAppState extends State<MainApp> {
         label,
         style: TextStyle(
           color: labelColor,
-          fontSize: _buttonFontSize,
+          fontSize: _buttonFontSizeCalculator,
         ),
       ),
       onPressed: () {
@@ -486,7 +486,7 @@ class MainAppState extends State<MainApp> {
         "C",
         style: TextStyle(
           color: _primarySwatchColor,
-          fontSize: _buttonFontSize,
+          fontSize: _buttonFontSizeCalculator,
         ),
       ),
       onPressed: () {
