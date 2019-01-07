@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/7/19 3:33 PM
+ * Created by Yudi Setiawan on 1/7/19 3:42 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/7/19 3:32 PM
+ * Last modified 1/7/19 3:40 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -515,219 +515,221 @@ class MainAppState extends State<MainApp> {
   }
 
   buildCalculatorLayout() {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            padding: EdgeInsets.all(_padding),
-            child: Stack(
-              alignment: Alignment.bottomRight,
-              children: <Widget>[
-                AutoSizeText(
-                  sbValue.toString(),
-                  style: Theme.of(context).textTheme.display2,
-                  maxLines: 1,
-                ),
-              ],
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              padding: EdgeInsets.all(_padding),
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: <Widget>[
+                  AutoSizeText(
+                    sbValue.toString(),
+                    style: Theme.of(context).textTheme.display2,
+                    maxLines: 1,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 2,
-                      child: buildRaisedButtonClearCalculator(),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonBackspaceCalculator(),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "/",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
+          Expanded(
+            flex: 1,
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 2,
+                        child: buildRaisedButtonClearCalculator(),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "7",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonBackspaceCalculator(),
                       ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "8",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "9",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "x",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "4",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "5",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "6",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "-",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "1",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "2",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "3",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "+",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 3,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "0",
-                        labelColor: _textColorGrey,
-                        buttonColor: _buttonColorWhite,
-                      ),
-                    ),
-                    /*Expanded(
-                      flex: 1,
-                      child: RaisedButton(
-                        color: _buttonColorWhite,
-                        highlightColor: _buttonHighlightColor,
-                        child: Text(
-                          ".",
-                          style: TextStyle(
-                            color: _buttonColorGrey,
-                            fontSize: _buttonFontSize,
-                          ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "/",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
                         ),
-                        onPressed: () {
-                          // TODO: do something in here when button . pressed
-                        },
                       ),
-                    ),*/
-                    Expanded(
-                      flex: 1,
-                      child: buildRaisedButtonGeneralCalculator(
-                        label: "=",
-                        labelColor: _textColorWhite,
-                        buttonColor: _primarySwatchColor,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
-            ],
-          ),
-        )
-      ],
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "7",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "8",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "9",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "x",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "4",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "5",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "6",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "-",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "1",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "2",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "3",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "+",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 3,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "0",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
+                        ),
+                      ),
+                      /*Expanded(
+                        flex: 1,
+                        child: RaisedButton(
+                          color: _buttonColorWhite,
+                          highlightColor: _buttonHighlightColor,
+                          child: Text(
+                            ".",
+                            style: TextStyle(
+                              color: _buttonColorGrey,
+                              fontSize: _buttonFontSize,
+                            ),
+                          ),
+                          onPressed: () {
+                            // TODO: do something in here when button . pressed
+                          },
+                        ),
+                      ),*/
+                      Expanded(
+                        flex: 1,
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: "=",
+                          labelColor: _textColorWhite,
+                          buttonColor: _primarySwatchColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
