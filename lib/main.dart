@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/7/19 3:42 PM
+ * Created by Yudi Setiawan on 1/7/19 4:48 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/7/19 3:40 PM
+ * Last modified 1/7/19 4:47 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -21,7 +21,7 @@ class MainApp extends StatefulWidget {
   @override
   MainAppState createState() => MainAppState();
 
-  /*@override
+/*@override
   TestingTabState createState() => TestingTabState();*/
 }
 
@@ -236,6 +236,309 @@ class MainAppState extends State<MainApp> {
   }
 
   buildConverterLayout() {
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_us_dollar_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Currency",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter
+                      )
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_length_filled_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Length",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_map_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Area",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_sugar_cube_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Volume",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_temperature_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Temperature",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_speed_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Speed",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_clock_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Time",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: _buttonColorWhite,
+                      border: Border.all(
+                        color: _borderColorConverter,
+                        width: _widthBorderConverter,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(_padding),
+                          child: Opacity(
+                            opacity: _buttonOpacityConverter,
+                            child: Image.asset(
+                              "assets/icons/icons8_weight_100.png",
+                              width: _imageSizeConverter,
+                              height: _imageSizeConverter,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Mass",
+                          style: TextStyle(
+                            color: _textColorGrey,
+                            fontSize: _buttonFontSizeConverter,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  buildConverterLayoutBak() {
     var size = MediaQuery.of(context).size;
 
     /* 24 is for notification bar on Android */
