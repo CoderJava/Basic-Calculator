@@ -1,13 +1,14 @@
 /*
- * Created by Yudi Setiawan on 1/7/19 4:48 PM
+ * Created by Yudi Setiawan on 1/7/19 11:42 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/7/19 4:47 PM
+ * Last modified 1/7/19 11:41 PM
  */
+
+import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 final Color _primarySwatchColor = Colors.orange;
 
@@ -28,32 +29,52 @@ class MainApp extends StatefulWidget {
 class TestingTabState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var toolbar = AppBar(
+      title: Text("Basic Calculator"),
+    );
+
+    /* 24 is for notification bar on Android */
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    double bottomBarHeight = MediaQuery.of(context).padding.bottom;
+    final double itemWidth = size.width / 2;
+    final double itemHeight =
+        (size.height - kToolbarHeight - statusBarHeight) / 2;
+    print(
+        "toolbar height: $kToolbarHeight & status bar height: $statusBarHeight & bottom bar height: $bottomBarHeight");
+
+    if (Platform.isAndroid) {
+      print("Android");
+    } else if (Platform.isIOS) {
+      print("iOS");
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Basic Calculator",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: StaggeredGridView.count(
-          crossAxisCount: 3,
+      appBar: toolbar,
+      body: SafeArea(
+        bottom: false,
+        child: GridView.count(
+          childAspectRatio: (itemWidth / itemHeight),
+          crossAxisCount: 2,
+          controller: ScrollController(keepScrollOffset: false),
+          shrinkWrap: true,
           scrollDirection: Axis.vertical,
-          staggeredTiles: <StaggeredTile>[
-            StaggeredTile.count(3, 2),
-            StaggeredTile.count(3, 2),
-            StaggeredTile.count(3, 2),
-          ],
           children: <Widget>[
             Container(
               color: Colors.green,
             ),
             Container(
-              color: Colors.blue,
+              color: Colors.red,
             ),
             Container(
-              color: Colors.red,
+              alignment: Alignment.bottomCenter,
+              color: Colors.blue,
+              child: Text(
+                "3",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),
@@ -68,7 +89,7 @@ class MainAppState extends State<MainApp> {
   final double _buttonFontSizeConverter = 16.0;
   final double _buttonOpacityConverter = 0.5;
   final double _imageSizeConverter = 36.0;
-  final double _widthBorderConverter = 0.5;
+  final double _borderWidthConverter = 0.5;
   final String _titleAppBar = "Basic Calculator";
 
   final Color _titleAppBarColor = Colors.white;
@@ -236,329 +257,34 @@ class MainAppState extends State<MainApp> {
   }
 
   buildConverterLayout() {
-    return SafeArea(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_us_dollar_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Currency",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter
-                      )
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_length_filled_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Length",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_map_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Area",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_sugar_cube_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Volume",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_temperature_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Temperature",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_speed_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Speed",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_clock_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Time",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: _buttonColorWhite,
-                      border: Border.all(
-                        color: _borderColorConverter,
-                        width: _widthBorderConverter,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(_padding),
-                          child: Opacity(
-                            opacity: _buttonOpacityConverter,
-                            child: Image.asset(
-                              "assets/icons/icons8_weight_100.png",
-                              width: _imageSizeConverter,
-                              height: _imageSizeConverter,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Mass",
-                          style: TextStyle(
-                            color: _textColorGrey,
-                            fontSize: _buttonFontSizeConverter,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
+    var mediaQueryData = MediaQuery.of(context);
 
-  buildConverterLayoutBak() {
-    var size = MediaQuery.of(context).size;
-
-    /* 24 is for notification bar on Android */
-    double itemWidth = size.width / 3;
-    double itemHeight = (size.height - kToolbarHeight - 24) / 3;
+    final double statusBarHeight = mediaQueryData.padding.top;
+    final double bottomBarHeight = mediaQueryData.padding.bottom;
+    final double barHeight = statusBarHeight + bottomBarHeight;
+    final double appBarHeight = kToolbarHeight + kTextTabBarHeight;
+    final double itemWidth = mediaQueryData.size.width / 3;
+    final double itemHeight =
+        (mediaQueryData.size.height - appBarHeight - barHeight) / 3;
 
     return SafeArea(
+      bottom: false,
       child: GridView.count(
         childAspectRatio: (itemWidth / itemHeight),
         crossAxisCount: 3,
+        controller: ScrollController(keepScrollOffset: false),
+        shrinkWrap: true,
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
@@ -575,9 +301,8 @@ class MainAppState extends State<MainApp> {
                 Text(
                   "Currency",
                   style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
+                      color: _textColorGrey,
+                      fontSize: _buttonFontSizeConverter),
                 ),
               ],
             ),
@@ -587,23 +312,24 @@ class MainAppState extends State<MainApp> {
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(_padding),
                   child: Opacity(
                     opacity: _buttonOpacityConverter,
                     child: RotationTransition(
+                      turns: AlwaysStoppedAnimation(45 / 360),
                       child: Image.asset(
                         "assets/icons/icons8_length_filled_100.png",
                         width: _imageSizeConverter,
                         height: _imageSizeConverter,
                       ),
-                      turns: AlwaysStoppedAnimation(45 / 360),
                     ),
                   ),
                 ),
@@ -622,10 +348,11 @@ class MainAppState extends State<MainApp> {
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
@@ -654,11 +381,12 @@ class MainAppState extends State<MainApp> {
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(_padding),
@@ -686,10 +414,11 @@ class MainAppState extends State<MainApp> {
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
@@ -718,11 +447,12 @@ class MainAppState extends State<MainApp> {
               color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(_padding),
@@ -747,13 +477,14 @@ class MainAppState extends State<MainApp> {
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: _buttonColorWhite,
               border: Border.all(
                 color: _borderColorConverter,
-                width: _widthBorderConverter,
+                width: _borderWidthConverter,
               ),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
@@ -779,14 +510,14 @@ class MainAppState extends State<MainApp> {
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _widthBorderConverter,
-              ),
-            ),
+                color: _buttonColorWhite,
+                border: Border.all(
+                  color: _borderColorConverter,
+                  width: _borderWidthConverter,
+                )),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(_padding),
@@ -809,9 +540,6 @@ class MainAppState extends State<MainApp> {
               ],
             ),
           ),
-          Center(
-            child: Text(""),
-          )
         ],
       ),
     );
