@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/8/19 8:06 PM
+ * Created by Yudi Setiawan on 1/8/19 8:53 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/8/19 8:05 PM
+ * Last modified 1/8/19 8:51 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -47,8 +47,8 @@ class MainAppState extends State<MainApp> {
   final Color _textColorWhite = Colors.white;
   final Color _borderColorConverter = Colors.grey[200];
 
-  int valueA;
-  int valueB;
+  double valueA;
+  double valueB;
   var sbValue = new StringBuffer();
   String operator;
 
@@ -56,12 +56,21 @@ class MainAppState extends State<MainApp> {
         bool isDoCalculate = false;
         String strValue = sbValue.toString();
         String lastCharacter = strValue.substring(strValue.length - 1);
+        String strValueA =
+            operator.isEmpty ? strValue : strValue.split(operator)[0];
+        String strValueB = operator.isEmpty ? "" : strValue.split(operator)[1];
         if ((strValue == "0" && str == "0") ||
             ((lastCharacter == "/" ||
                     lastCharacter == "x" ||
                     lastCharacter == "-" ||
                     lastCharacter == "+") &&
-                str == "0")) {
+                str == ".")) {
+          return;
+        } else if (operator.isEmpty && str == "." && strValueA.contains(".")) {
+          return;
+        } else if (operator.isNotEmpty &&
+            str == "." &&
+            strValueB.contains(".")) {
           return;
         } else if (str == "=") {
           isDoCalculate = true;
@@ -74,7 +83,7 @@ class MainAppState extends State<MainApp> {
         }
 
         if (!isDoCalculate) {
-          if (sbValue.toString() == "0" && str != "0") {
+          if (sbValue.toString() == "0" && str != "0" && str != ".") {
             if (str != "/" && str != "x" && str != "-" && str != "+") {
               sbValue.clear();
             }
@@ -87,13 +96,13 @@ class MainAppState extends State<MainApp> {
           if (values.length == 2 &&
               values[0].isNotEmpty &&
               values[1].isNotEmpty) {
-            valueA = int.parse(values[0]);
-            valueB = int.parse(values[1]);
+            valueA = double.parse(values[0]);
+            valueB = double.parse(values[1]);
             sbValue.clear();
-            int total = 0;
+            double total = 0;
             switch (operator) {
               case "/":
-                total = valueA ~/ valueB;
+                total = valueA / valueB;
                 break;
               case "x":
                 total = valueA * valueB;
@@ -104,7 +113,13 @@ class MainAppState extends State<MainApp> {
               case "+":
                 total = valueA + valueB;
             }
-            sbValue.write(total);
+            var strTotal = total.toString();
+            var strDecimalValue = strTotal.split("\.");
+            if (strDecimalValue[1].length == 1 &&
+                strDecimalValue[1][0] == "0") {
+              strTotal = "${total.toInt()}";
+            }
+            sbValue.write(strTotal);
             if (str == "/" || str == "x" || str == "-" || str == "+") {
               operator = str;
               sbValue.write(str);
