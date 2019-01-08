@@ -1,10 +1,8 @@
 /*
- * Created by Yudi Setiawan on 1/7/19 11:42 PM
+ * Created by Yudi Setiawan on 1/8/19 8:53 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/7/19 11:41 PM
+ * Last modified 1/8/19 8:51 PM
  */
-
-import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,57 +27,7 @@ class MainApp extends StatefulWidget {
 class TestingTabState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var toolbar = AppBar(
-      title: Text("Basic Calculator"),
-    );
-
-    /* 24 is for notification bar on Android */
-    double statusBarHeight = MediaQuery.of(context).padding.top;
-    double bottomBarHeight = MediaQuery.of(context).padding.bottom;
-    final double itemWidth = size.width / 2;
-    final double itemHeight =
-        (size.height - kToolbarHeight - statusBarHeight) / 2;
-    print(
-        "toolbar height: $kToolbarHeight & status bar height: $statusBarHeight & bottom bar height: $bottomBarHeight");
-
-    if (Platform.isAndroid) {
-      print("Android");
-    } else if (Platform.isIOS) {
-      print("iOS");
-    }
-
-    return Scaffold(
-      appBar: toolbar,
-      body: SafeArea(
-        bottom: false,
-        child: GridView.count(
-          childAspectRatio: (itemWidth / itemHeight),
-          crossAxisCount: 2,
-          controller: ScrollController(keepScrollOffset: false),
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.red,
-            ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              color: Colors.blue,
-              child: Text(
-                "3",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }
 
@@ -99,8 +47,8 @@ class MainAppState extends State<MainApp> {
   final Color _textColorWhite = Colors.white;
   final Color _borderColorConverter = Colors.grey[200];
 
-  int valueA;
-  int valueB;
+  double valueA;
+  double valueB;
   var sbValue = new StringBuffer();
   String operator;
 
@@ -108,12 +56,21 @@ class MainAppState extends State<MainApp> {
         bool isDoCalculate = false;
         String strValue = sbValue.toString();
         String lastCharacter = strValue.substring(strValue.length - 1);
+        String strValueA =
+            operator.isEmpty ? strValue : strValue.split(operator)[0];
+        String strValueB = operator.isEmpty ? "" : strValue.split(operator)[1];
         if ((strValue == "0" && str == "0") ||
             ((lastCharacter == "/" ||
                     lastCharacter == "x" ||
                     lastCharacter == "-" ||
                     lastCharacter == "+") &&
-                str == "0")) {
+                str == ".")) {
+          return;
+        } else if (operator.isEmpty && str == "." && strValueA.contains(".")) {
+          return;
+        } else if (operator.isNotEmpty &&
+            str == "." &&
+            strValueB.contains(".")) {
           return;
         } else if (str == "=") {
           isDoCalculate = true;
@@ -126,7 +83,7 @@ class MainAppState extends State<MainApp> {
         }
 
         if (!isDoCalculate) {
-          if (sbValue.toString() == "0" && str != "0") {
+          if (sbValue.toString() == "0" && str != "0" && str != ".") {
             if (str != "/" && str != "x" && str != "-" && str != "+") {
               sbValue.clear();
             }
@@ -139,13 +96,13 @@ class MainAppState extends State<MainApp> {
           if (values.length == 2 &&
               values[0].isNotEmpty &&
               values[1].isNotEmpty) {
-            valueA = int.parse(values[0]);
-            valueB = int.parse(values[1]);
+            valueA = double.parse(values[0]);
+            valueB = double.parse(values[1]);
             sbValue.clear();
-            int total = 0;
+            double total = 0;
             switch (operator) {
               case "/":
-                total = valueA ~/ valueB;
+                total = valueA / valueB;
                 break;
               case "x":
                 total = valueA * valueB;
@@ -156,7 +113,13 @@ class MainAppState extends State<MainApp> {
               case "+":
                 total = valueA + valueB;
             }
-            sbValue.write(total);
+            var strTotal = total.toString();
+            var strDecimalValue = strTotal.split("\.");
+            if (strDecimalValue[1].length == 1 &&
+                strDecimalValue[1][0] == "0") {
+              strTotal = "${total.toInt()}";
+            }
+            sbValue.write(strTotal);
             if (str == "/" || str == "x" || str == "-" || str == "+") {
               operator = str;
               sbValue.write(str);
@@ -721,30 +684,21 @@ class MainAppState extends State<MainApp> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: buildRaisedButtonGeneralCalculator(
                           label: "0",
                           labelColor: _textColorGrey,
                           buttonColor: _buttonColorWhite,
                         ),
                       ),
-                      /*Expanded(
+                      Expanded(
                         flex: 1,
-                        child: RaisedButton(
-                          color: _buttonColorWhite,
-                          highlightColor: _buttonHighlightColor,
-                          child: Text(
-                            ".",
-                            style: TextStyle(
-                              color: _buttonColorGrey,
-                              fontSize: _buttonFontSize,
-                            ),
-                          ),
-                          onPressed: () {
-                            // TODO: do something in here when button . pressed
-                          },
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: ".",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
                         ),
-                      ),*/
+                      ),
                       Expanded(
                         flex: 1,
                         child: buildRaisedButtonGeneralCalculator(
