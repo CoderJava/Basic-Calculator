@@ -1,10 +1,8 @@
 /*
- * Created by Yudi Setiawan on 1/7/19 11:42 PM
+ * Created by Yudi Setiawan on 1/8/19 8:06 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/7/19 11:41 PM
+ * Last modified 1/8/19 8:05 PM
  */
-
-import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,57 +27,7 @@ class MainApp extends StatefulWidget {
 class TestingTabState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var toolbar = AppBar(
-      title: Text("Basic Calculator"),
-    );
-
-    /* 24 is for notification bar on Android */
-    double statusBarHeight = MediaQuery.of(context).padding.top;
-    double bottomBarHeight = MediaQuery.of(context).padding.bottom;
-    final double itemWidth = size.width / 2;
-    final double itemHeight =
-        (size.height - kToolbarHeight - statusBarHeight) / 2;
-    print(
-        "toolbar height: $kToolbarHeight & status bar height: $statusBarHeight & bottom bar height: $bottomBarHeight");
-
-    if (Platform.isAndroid) {
-      print("Android");
-    } else if (Platform.isIOS) {
-      print("iOS");
-    }
-
-    return Scaffold(
-      appBar: toolbar,
-      body: SafeArea(
-        bottom: false,
-        child: GridView.count(
-          childAspectRatio: (itemWidth / itemHeight),
-          crossAxisCount: 2,
-          controller: ScrollController(keepScrollOffset: false),
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.red,
-            ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              color: Colors.blue,
-              child: Text(
-                "3",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }
 
@@ -721,30 +669,21 @@ class MainAppState extends State<MainApp> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: buildRaisedButtonGeneralCalculator(
                           label: "0",
                           labelColor: _textColorGrey,
                           buttonColor: _buttonColorWhite,
                         ),
                       ),
-                      /*Expanded(
+                      Expanded(
                         flex: 1,
-                        child: RaisedButton(
-                          color: _buttonColorWhite,
-                          highlightColor: _buttonHighlightColor,
-                          child: Text(
-                            ".",
-                            style: TextStyle(
-                              color: _buttonColorGrey,
-                              fontSize: _buttonFontSize,
-                            ),
-                          ),
-                          onPressed: () {
-                            // TODO: do something in here when button . pressed
-                          },
+                        child: buildRaisedButtonGeneralCalculator(
+                          label: ".",
+                          labelColor: _textColorGrey,
+                          buttonColor: _buttonColorWhite,
                         ),
-                      ),*/
+                      ),
                       Expanded(
                         flex: 1,
                         child: buildRaisedButtonGeneralCalculator(
