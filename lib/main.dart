@@ -1,20 +1,25 @@
 /*
- * Created by Yudi Setiawan on 1/8/19 8:53 PM
+ * Created by Yudi Setiawan on 1/9/19 8:28 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/8/19 8:51 PM
+ * Last modified 1/9/19 8:27 AM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 final Color _primarySwatchColor = Colors.orange;
 
-void main() => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: _primarySwatchColor),
-      home: MainApp(),
-    ));
+void main() =>
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+        .then((_) {
+      runApp(MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: _primarySwatchColor),
+        home: MainApp(),
+      ));
+    });
 
 class MainApp extends StatefulWidget {
   @override
