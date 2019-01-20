@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 7:37 PM
+ * Created by Yudi Setiawan on 1/20/19 10:37 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 7:35 PM
+ * Last modified 1/20/19 10:31 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -246,12 +246,9 @@ class MainAppState extends State<MainApp> {
         shrinkWrap: true,
         children: <Widget>[
           GestureDetector(
-            onTap: () {
-              print("Currency tapped");
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return CurrencyConverterScreen();
-              }));
-            },
+              })),
             child: buildContainerMenuConverter(
               Key("container_menu_currency"),
               "assets/icons/icons8_us_dollar_100.png",
@@ -259,11 +256,9 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return LengthConverterScreen();
-              }));
-            },
+              })),
             child: buildContainerMenuConverter(
               Key("container_menu_length"),
               "assets/icons/icons8_length_filled_100.png",
