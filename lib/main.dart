@@ -1,13 +1,14 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 10:47 PM
+ * Created by Yudi Setiawan on 1/20/19 10:51 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:47 PM
+ * Last modified 1/20/19 10:50 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:basic_calculator_app/ui/area_converter_screen.dart';
 import 'package:basic_calculator_app/ui/currency_converter_screen.dart';
 import 'package:basic_calculator_app/ui/length_converter_screen.dart';
+import 'package:basic_calculator_app/ui/speed_converter_screen.dart';
 import 'package:basic_calculator_app/ui/temperature_converter_screen.dart';
 import 'package:basic_calculator_app/ui/volume_converter_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -299,10 +300,9 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              // TODO: do something in here
-              print("Speed tapped");
-            },
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return SpeedConverterScreen();
+            })),
             child: buildContainerMenuConverter(
               Key("container_menu_speed"),
               "assets/icons/icons8_speed_100.png",
