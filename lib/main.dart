@@ -1,13 +1,14 @@
 /*
  * Created by Yudi Setiawan on 1/20/19 10:38 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:37 PM
+ * Last modified 1/20/19 10:38 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:basic_calculator_app/ui/area_converter_screen.dart';
 import 'package:basic_calculator_app/ui/currency_converter_screen.dart';
 import 'package:basic_calculator_app/ui/length_converter_screen.dart';
+import 'package:basic_calculator_app/ui/volume_converter_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -277,10 +278,9 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              // TODO: do something in here
-              print("Volume tapped");
-            },
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return VolumeConverterScreen();
+            })),
             child: buildContainerMenuConverter(
               Key("container_menu_volume"),
               "assets/icons/icons8_sugar_cube_100.png",
