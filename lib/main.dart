@@ -1,13 +1,14 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 10:54 PM
+ * Created by Yudi Setiawan on 1/20/19 10:58 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:54 PM
+ * Last modified 1/20/19 10:58 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:basic_calculator_app/ui/area_converter_screen.dart';
 import 'package:basic_calculator_app/ui/currency_converter_screen.dart';
 import 'package:basic_calculator_app/ui/length_converter_screen.dart';
+import 'package:basic_calculator_app/ui/mass_converter_screen.dart';
 import 'package:basic_calculator_app/ui/speed_converter_screen.dart';
 import 'package:basic_calculator_app/ui/temperature_converter_screen.dart';
 import 'package:basic_calculator_app/ui/time_converter_screen.dart';
@@ -321,10 +322,9 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              // TODO: do something in here
-              print("Mass tapped");
-            },
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MassConverterScreen();
+            })),
             child: buildContainerMenuConverter(
               Key("container_menu_mass"),
               "assets/icons/icons8_weight_100.png",
