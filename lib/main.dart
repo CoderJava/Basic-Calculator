@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/9/19 8:28 AM
+ * Created by Yudi Setiawan on 1/20/19 6:45 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/9/19 8:27 AM
+ * Last modified 1/20/19 6:43 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -243,269 +243,92 @@ class MainAppState extends State<MainApp> {
         controller: ScrollController(keepScrollOffset: false),
         shrinkWrap: true,
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_us_dollar_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Currency",
-                  style: TextStyle(
-                      color: _textColorGrey,
-                      fontSize: _buttonFontSizeConverter),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Currency tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_currency"),
+              "assets/icons/icons8_us_dollar_100.png",
+              "Currency",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: RotationTransition(
-                      turns: AlwaysStoppedAnimation(45 / 360),
-                      child: Image.asset(
-                        "assets/icons/icons8_length_filled_100.png",
-                        width: _imageSizeConverter,
-                        height: _imageSizeConverter,
-                      ),
-                    ),
-                  ),
-                ),
-                Text(
-                  "Length",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Length tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_length"),
+              "assets/icons/icons8_length_filled_100.png",
+              "Length",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_map_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Area",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Area tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_area"),
+              "assets/icons/icons8_map_100.png",
+              "Area",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_sugar_cube_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Volume",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Volume tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_volume"),
+              "assets/icons/icons8_sugar_cube_100.png",
+              "Volume",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_temperature_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Temperature",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Temperature tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_temperature"),
+              "assets/icons/icons8_temperature_100.png",
+              "Temperature",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_speed_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Speed",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Speed tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_speed"),
+              "assets/icons/icons8_speed_100.png",
+              "Speed",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: _buttonColorWhite,
-              border: Border.all(
-                color: _borderColorConverter,
-                width: _borderWidthConverter,
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_clock_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Time",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Time tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_time"),
+              "assets/icons/icons8_clock_100.png",
+              "Time",
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: _buttonColorWhite,
-                border: Border.all(
-                  color: _borderColorConverter,
-                  width: _borderWidthConverter,
-                )),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(_padding),
-                  child: Opacity(
-                    opacity: _buttonOpacityConverter,
-                    child: Image.asset(
-                      "assets/icons/icons8_weight_100.png",
-                      width: _imageSizeConverter,
-                      height: _imageSizeConverter,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Mass",
-                  style: TextStyle(
-                    color: _textColorGrey,
-                    fontSize: _buttonFontSizeConverter,
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              // TODO: do something in here
+              print("Mass tapped");
+            },
+            child: buildContainerMenuConverter(
+              Key("container_menu_mass"),
+              "assets/icons/icons8_weight_100.png",
+              "Mass",
             ),
           ),
         ],
@@ -772,6 +595,44 @@ class MainAppState extends State<MainApp> {
       onPressed: () {
         clearSbValue();
       },
+    );
+  }
+
+  Widget buildContainerMenuConverter(
+      Key key, String pathImage, String labelMenu) {
+    return Container(
+      key: key,
+      decoration: BoxDecoration(
+        color: _buttonColorWhite,
+        border: Border.all(
+          color: _borderColorConverter,
+          width: _borderWidthConverter,
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(_padding),
+            child: Opacity(
+              opacity: _buttonOpacityConverter,
+              child: Image.asset(
+                pathImage,
+                width: _imageSizeConverter,
+                height: _imageSizeConverter,
+              ),
+            ),
+          ),
+          Text(
+            labelMenu,
+            style: TextStyle(
+              color: _textColorGrey,
+              fontSize: _buttonFontSizeConverter,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
