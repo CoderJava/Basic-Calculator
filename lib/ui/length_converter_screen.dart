@@ -1,8 +1,10 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 7:37 PM
+ * Created by Yudi Setiawan on 1/20/19 10:42 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 7:32 PM
+ * Last modified 1/20/19 10:39 PM
  */
+
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
         ),
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back,
+            Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios,
             color: Colors.white,
           ),
           onPressed: () {

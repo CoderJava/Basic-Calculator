@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 10:38 PM
+ * Created by Yudi Setiawan on 1/20/19 10:42 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:35 PM
+ * Last modified 1/20/19 10:41 PM
  */
 
 import 'dart:io';
@@ -24,9 +24,10 @@ class VolumeConverterScreenState extends State<VolumeConverterScreen> {
         ),
         leading: IconButton(
           icon: Icon(
-              Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
+            Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () => Navigator.pop(context),
-          color: Colors.white,
         ),
       ),
       body: Center(
