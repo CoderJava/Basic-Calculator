@@ -1,11 +1,11 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 7:27 PM
+ * Created by Yudi Setiawan on 1/20/19 7:35 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 7:21 PM
+ * Last modified 1/20/19 7:34 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:basic_calculator_app/ui/currency_screen.dart';
+import 'package:basic_calculator_app/ui/currency_converter_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -248,7 +248,7 @@ class MainAppState extends State<MainApp> {
             onTap: () {
               print("Currency tapped");
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return CurrencyScreen();
+                return CurrencyConverterScreen();
               }));
             },
             child: buildContainerMenuConverter(

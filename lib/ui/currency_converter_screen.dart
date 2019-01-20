@@ -1,19 +1,19 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 7:27 PM
+ * Created by Yudi Setiawan on 1/20/19 7:35 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 7:24 PM
+ * Last modified 1/20/19 7:29 PM
  */
 
 import 'package:flutter/material.dart';
 
-class CurrencyScreen extends StatefulWidget {
+class CurrencyConverterScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return CurrencyScreenState();
+    return CurrencyConverterScreenState();
   }
 }
 
-class CurrencyScreenState extends State<CurrencyScreen> {
+class CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
