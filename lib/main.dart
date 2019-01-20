@@ -1,13 +1,14 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 10:38 PM
+ * Created by Yudi Setiawan on 1/20/19 10:47 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:38 PM
+ * Last modified 1/20/19 10:47 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:basic_calculator_app/ui/area_converter_screen.dart';
 import 'package:basic_calculator_app/ui/currency_converter_screen.dart';
 import 'package:basic_calculator_app/ui/length_converter_screen.dart';
+import 'package:basic_calculator_app/ui/temperature_converter_screen.dart';
 import 'package:basic_calculator_app/ui/volume_converter_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -288,10 +289,9 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              // TODO: do something in here
-              print("Temperature tapped");
-            },
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return TemperatureConverterScreen();
+            })),
             child: buildContainerMenuConverter(
               Key("container_menu_temperature"),
               "assets/icons/icons8_temperature_100.png",
