@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/21/19 10:45 PM
+ * Created by Yudi Setiawan on 1/22/19 9:47 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/21/19 10:43 PM
+ * Last modified 1/22/19 9:45 AM
  */
 
 import 'dart:io';
@@ -58,116 +58,199 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
               child: StaggeredGridView.count(
                 crossAxisCount: 4,
                 staggeredTiles: <StaggeredTile>[
-                  StaggeredTile.count(3, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
                   StaggeredTile.count(1, 2),
-                  StaggeredTile.count(3, 1),
-                  StaggeredTile.count(3, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
+                  StaggeredTile.count(1, 1),
                   StaggeredTile.count(1, 2),
                   StaggeredTile.count(2, 1),
                   StaggeredTile.count(1, 1),
                 ],
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "7",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Center(
-                      child: Text("789"),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "8",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Center(
-                      child: Text("AC"),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "9",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Center(
-                      child: Text("456"),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "C",
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Center(
-                      child: Text("123"),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "4",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey[200],
-                          width: 0.5,
-                        ),
-                      ),
-                      child: Center(
-                        child: Text("X"),
-                      ),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "5",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey[200],
-                          width: 0.5,
-                        ),
-                      ),
-                      child: Center(
-                        child: Text("0"),
-                      ),
-                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.grey[200],
-                        width: 0.5,
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "6",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
                       ),
                     ),
-                    child: Center(
-                      child: Text("."),
+                    onPressed: () {
+                      // TODO: do something in here  
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "1",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
+                      ),
                     ),
+                    onPressed: () {
+                      // TODO: do something in here  
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "2",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    onPressed: () {
+                      // TODO: do something in here  
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "3",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Icon(
+                      Icons.backspace,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      "0",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    highlightColor: Colors.grey[800],
+                    child: Text(
+                      ".",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    onPressed: () {
+                      // TODO: do something in here
+                    },
                   ),
                 ],
               ),
