@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/22/19 9:47 AM
+ * Created by Yudi Setiawan on 1/23/19 10:42 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/22/19 9:45 AM
+ * Last modified 1/23/19 10:39 AM
  */
 
 import 'dart:io';
@@ -45,11 +45,61 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: Text("Hello"),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 8.0,
+                        left: 8.0,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("m"),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: <Widget>[
+                              Text("1"),
+                              Text("Meter"),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 8.0,
+                      left: 8.0,
+                    ),
+                    child: Divider(
+                      height: 1.0,
+                      color: Colors.grey,
+                    ),
                   ),
                   Expanded(
                     flex: 1,
-                    child: Text("World"),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 8.0,
+                        left: 8.0,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("cm"),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: <Widget>[
+                              Text("100"),
+                              Text("Centimeter"),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -168,7 +218,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       ),
                     ),
                     onPressed: () {
-                      // TODO: do something in here  
+                      // TODO: do something in here
                     },
                   ),
                   RaisedButton(
@@ -182,7 +232,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       ),
                     ),
                     onPressed: () {
-                      // TODO: do something in here  
+                      // TODO: do something in here
                     },
                   ),
                   RaisedButton(
@@ -196,7 +246,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       ),
                     ),
                     onPressed: () {
-                      // TODO: do something in here  
+                      // TODO: do something in here
                     },
                   ),
                   RaisedButton(
