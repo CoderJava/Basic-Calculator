@@ -1,13 +1,12 @@
 /*
- * Created by Yudi Setiawan on 1/23/19 10:42 AM
+ * Created by Yudi Setiawan on 1/28/19 3:33 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/23/19 10:39 AM
+ * Last modified 1/28/19 3:32 PM
  */
 
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class LengthConverterScreen extends StatefulWidget {
   @override
@@ -105,202 +104,136 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
               ),
             ),
             Expanded(
-              child: StaggeredGridView.count(
-                crossAxisCount: 4,
-                staggeredTiles: <StaggeredTile>[
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 2),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 1),
-                  StaggeredTile.count(1, 2),
-                  StaggeredTile.count(2, 1),
-                  StaggeredTile.count(1, 1),
-                ],
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "7",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "7",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "8",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "9",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "4",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "5",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "6",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "1",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "2",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "3",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Expanded(
+                                flex: 2,
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: "0",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: buildRaisedButtonGeneralCalculator(
+                                  label: ".",
+                                  labelColor: Colors.grey,
+                                  buttonColor: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
                   ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "8",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Expanded(
+                          child: buildRaisedButtonClearCalculator(),
+                        ),
+                        Expanded(
+                          child: buildRaisedButtonBackspaceCalculator(),
+                        ),
+                      ],
                     ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "9",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "C",
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "4",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "5",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "6",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "1",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "2",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "3",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Icon(
-                      Icons.backspace,
-                      color: Colors.grey,
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      "0",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
-                  ),
-                  RaisedButton(
-                    color: Colors.white,
-                    highlightColor: Colors.grey[800],
-                    child: Text(
-                      ".",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      // TODO: do something in here
-                    },
                   ),
                 ],
               ),
@@ -310,4 +243,57 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
       ),
     );
   }
+
+  RaisedButton buildRaisedButtonGeneralCalculator({
+    String label,
+    Color labelColor,
+    Color buttonColor,
+  }) {
+    return RaisedButton(
+      color: buttonColor,
+      highlightColor: Colors.grey[800],
+      child: Text(
+        label,
+        style: TextStyle(
+          color: labelColor,
+          fontSize: 24.0,
+        ),
+      ),
+      onPressed: () {
+        // TODO: do something in here
+      },
+    );
+  }
+
+  RaisedButton buildRaisedButtonBackspaceCalculator() {
+    return RaisedButton(
+      color: Colors.white,
+      highlightColor: Colors.grey[800],
+      child: Icon(
+        Icons.backspace,
+        color: Colors.grey,
+      ),
+      onPressed: () {
+        // TODO: do something in here
+      },
+    );
+  }
+
+  RaisedButton buildRaisedButtonClearCalculator() {
+    return RaisedButton(
+      color: Colors.white,
+      highlightColor: Colors.grey[800],
+      child: Text(
+        "C",
+        style: TextStyle(
+          color: Colors.orange,
+          fontSize: 24.0,
+        ),
+      ),
+      onPressed: () {
+        // TODO: do something in here
+      },
+    );
+  }
+
 }
