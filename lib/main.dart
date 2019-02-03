@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/3/19 9:54 PM
+ * Created by Yudi Setiawan on 2/3/19 10:17 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/3/19 9:53 PM
+ * Last modified 2/3/19 10:05 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
