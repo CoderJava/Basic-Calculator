@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/3/19 7:27 PM
+ * Created by Yudi Setiawan on 2/3/19 7:34 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/3/19 7:26 PM
+ * Last modified 2/3/19 7:34 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -13,19 +13,18 @@ import 'package:basic_calculator_app/ui/speed_converter_screen.dart';
 import 'package:basic_calculator_app/ui/temperature_converter_screen.dart';
 import 'package:basic_calculator_app/ui/time_converter_screen.dart';
 import 'package:basic_calculator_app/ui/volume_converter_screen.dart';
+import 'package:basic_calculator_app/values/color_assets.dart';
 import 'package:basic_calculator_app/values/dimens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-final Color _primarySwatchColor = Colors.orange;
 
 void main() =>
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((_) {
       runApp(MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: _primarySwatchColor),
+        theme: ThemeData(primarySwatch: ColorAssets.primarySwatchColor),
         home: MainApp(),
       ));
     });
@@ -44,7 +43,6 @@ class MainAppState extends State<MainApp> {
   final double _borderWidthConverter = 0.5;
   final String _titleAppBar = "Basic Calculator";
 
-  final Color _titleAppBarColor = Colors.white;
   final Color _buttonColorWhite = Colors.white;
   final Color _buttonHighlightColor = Colors.grey[800];
   final Color _textColorGrey = Colors.grey;
@@ -199,7 +197,7 @@ class MainAppState extends State<MainApp> {
       title: Text(
         _titleAppBar,
         style: TextStyle(
-          color: _titleAppBarColor,
+          color: ColorAssets.titleAppBarColor,
         ),
       ),
       bottom: TabBar(
@@ -531,7 +529,7 @@ class MainAppState extends State<MainApp> {
                         child: buildRaisedButtonGeneralCalculator(
                           label: "=",
                           labelColor: _textColorWhite,
-                          buttonColor: _primarySwatchColor,
+                          buttonColor: ColorAssets.primarySwatchColor,
                         ),
                       ),
                     ],
@@ -587,7 +585,7 @@ class MainAppState extends State<MainApp> {
       child: Text(
         "C",
         style: TextStyle(
-          color: _primarySwatchColor,
+          color: ColorAssets.primarySwatchColor,
           fontSize: _buttonFontSizeCalculator,
         ),
       ),
