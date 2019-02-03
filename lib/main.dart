@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 1/20/19 10:58 PM
+ * Created by Yudi Setiawan on 2/3/19 7:22 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/20/19 10:58 PM
+ * Last modified 2/3/19 7:08 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -252,9 +252,10 @@ class MainAppState extends State<MainApp> {
         shrinkWrap: true,
         children: <Widget>[
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return CurrencyConverterScreen();
-              })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CurrencyConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_currency"),
               "assets/icons/icons8_us_dollar_100.png",
@@ -262,9 +263,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return LengthConverterScreen();
-              })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LengthConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_length"),
               "assets/icons/icons8_length_filled_100.png",
@@ -272,9 +274,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return AreaConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AreaConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_area"),
               "assets/icons/icons8_map_100.png",
@@ -282,9 +285,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return VolumeConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return VolumeConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_volume"),
               "assets/icons/icons8_sugar_cube_100.png",
@@ -292,9 +296,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return TemperatureConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TemperatureConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_temperature"),
               "assets/icons/icons8_temperature_100.png",
@@ -302,9 +307,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return SpeedConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SpeedConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_speed"),
               "assets/icons/icons8_speed_100.png",
@@ -312,9 +318,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return TimeConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TimeConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_time"),
               "assets/icons/icons8_clock_100.png",
@@ -322,9 +329,10 @@ class MainAppState extends State<MainApp> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MassConverterScreen();
-            })),
+            onTap: () =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MassConverterScreen();
+                })),
             child: buildContainerMenuConverter(
               Key("container_menu_mass"),
               "assets/icons/icons8_weight_100.png",
