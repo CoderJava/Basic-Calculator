@@ -1,11 +1,12 @@
 /*
- * Created by Yudi Setiawan on 1/28/19 3:33 PM
+ * Created by Yudi Setiawan on 2/3/19 10:19 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 1/28/19 3:32 PM
+ * Last modified 2/3/19 10:16 PM
  */
 
 import 'dart:io';
 
+import 'package:basic_calculator_app/utils/button_calculator.dart';
 import 'package:flutter/material.dart';
 
 class LengthConverterScreen extends StatefulWidget {
@@ -117,24 +118,33 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "7",
                                   label: "7",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "8",
                                   label: "8",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "9",
                                   label: "9",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                             ],
@@ -145,24 +155,33 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "4",
                                   label: "4",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "5",
                                   label: "5",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "6",
                                   label: "6",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                             ],
@@ -173,24 +192,33 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "1",
                                   label: "1",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "2",
                                   label: "2",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "3",
                                   label: "3",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                             ],
@@ -202,17 +230,23 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                             children: <Widget>[
                               Expanded(
                                 flex: 2,
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: "0",
                                   label: "0",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                               Expanded(
-                                child: buildRaisedButtonGeneralCalculator(
+                                child: ButtonCalculator(
+                                  "general",
+                                  actionOnPressedWithParameter: (String value) {
+                                    // TODO: do something in here
+                                  },
+                                  valueActionOnPressedWithParameter: ".",
                                   label: ".",
-                                  labelColor: Colors.grey,
-                                  buttonColor: Colors.white,
                                 ),
                               ),
                             ],
@@ -227,10 +261,16 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         Expanded(
-                          child: buildRaisedButtonClearCalculator(),
+                          child: ButtonCalculator(
+                            "clear",
+                            actionOnPressed: testing,
+                          ),
                         ),
                         Expanded(
-                          child: buildRaisedButtonBackspaceCalculator(),
+                          child: ButtonCalculator(
+                            "backspace",
+                            actionOnPressed: testing,
+                          ),
                         ),
                       ],
                     ),
@@ -265,35 +305,8 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
     );
   }
 
-  RaisedButton buildRaisedButtonBackspaceCalculator() {
-    return RaisedButton(
-      color: Colors.white,
-      highlightColor: Colors.grey[800],
-      child: Icon(
-        Icons.backspace,
-        color: Colors.grey,
-      ),
-      onPressed: () {
-        // TODO: do something in here
-      },
-    );
-  }
-
-  RaisedButton buildRaisedButtonClearCalculator() {
-    return RaisedButton(
-      color: Colors.white,
-      highlightColor: Colors.grey[800],
-      child: Text(
-        "C",
-        style: TextStyle(
-          color: Colors.orange,
-          fontSize: 24.0,
-        ),
-      ),
-      onPressed: () {
-        // TODO: do something in here
-      },
-    );
+  VoidCallback testing() {
+    print("testing");
   }
 
 }
