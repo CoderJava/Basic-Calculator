@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/3/19 7:22 PM
+ * Created by Yudi Setiawan on 2/3/19 7:27 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/3/19 7:08 PM
+ * Last modified 2/3/19 7:26 PM
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -13,6 +13,7 @@ import 'package:basic_calculator_app/ui/speed_converter_screen.dart';
 import 'package:basic_calculator_app/ui/temperature_converter_screen.dart';
 import 'package:basic_calculator_app/ui/time_converter_screen.dart';
 import 'package:basic_calculator_app/ui/volume_converter_screen.dart';
+import 'package:basic_calculator_app/values/dimens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,20 +33,10 @@ void main() =>
 class MainApp extends StatefulWidget {
   @override
   MainAppState createState() => MainAppState();
-
-/*@override
-  TestingTabState createState() => TestingTabState();*/
 }
 
-class TestingTabState extends State<MainApp> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
-  }
-}
 
 class MainAppState extends State<MainApp> {
-  final double _padding = 16.0;
   final double _buttonFontSizeCalculator = 24.0;
   final double _buttonFontSizeConverter = 16.0;
   final double _buttonOpacityConverter = 0.5;
@@ -353,7 +344,7 @@ class MainAppState extends State<MainApp> {
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              padding: EdgeInsets.all(_padding),
+              padding: EdgeInsets.all(Dimens.padding16),
               child: Stack(
                 alignment: Alignment.bottomRight,
                 children: <Widget>[
@@ -622,7 +613,7 @@ class MainAppState extends State<MainApp> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(_padding),
+            padding: EdgeInsets.all(Dimens.padding16),
             child: Opacity(
               opacity: _buttonOpacityConverter,
               child: Image.asset(
