@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 9:18 AM
+ * Created by Yudi Setiawan on 2/10/19 11:38 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 9:15 AM
+ * Last modified 2/10/19 11:36 AM
  */
 
 import 'dart:io';
@@ -18,7 +18,15 @@ class LengthConverterScreen extends StatefulWidget {
 }
 
 class LengthConverterScreenState extends State<LengthConverterScreen> {
-  String positionPanelActive = "top";
+  String _positionPanelActive = "top";
+  String _unitPanelTop = "m";
+  String _unitPanelDown = "cm";
+  String _unitDetailPanelTop = "Meter";
+  String _unitDetailPanelDown = "Centimeter";
+  int _indexPanelTop = 3;
+  int _indexPanelDown = 5;
+  int _valuePanelTop = 1;
+  int _valuePanelDown = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -244,10 +252,119 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("m"),
+                GestureDetector(
+                  onTap: () => showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            child: Wrap(
+                              children: <Widget>[
+                                ListTile(
+                                  title: Text("Kilometer"),
+                                  subtitle: Text("km"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 0;
+                                      _unitPanelTop = "km";
+                                      _unitDetailPanelTop = "Kilometer";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Hektometer"),
+                                  subtitle: Text("hm"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 1;
+                                      _unitPanelTop = "hm";
+                                      _unitDetailPanelTop = "Hektometer";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Dekameter"),
+                                  subtitle: Text("dam"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 2;
+                                      _unitPanelTop = "dam";
+                                      _unitDetailPanelTop = "Dekameter";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Meter"),
+                                  subtitle: Text("m"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 3;
+                                      _unitPanelTop = "m";
+                                      _unitDetailPanelTop = "Meter";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Desimeter"),
+                                  subtitle: Text("dm"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 4;
+                                      _unitPanelTop = "dm";
+                                      _unitDetailPanelTop = "Desimeter";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Centimeter"),
+                                  subtitle: Text("cm"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 5;
+                                      _unitPanelTop = "cm";
+                                      _unitDetailPanelTop = "Centimeter";
+                                      // TODO: do something in here  
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text("Milimeter"),
+                                  subtitle: Text("mm"),
+                                  onTap: () {
+                                    setState(() {
+                                      _indexPanelTop = 6;
+                                      _unitPanelTop = "mm";
+                                      _unitDetailPanelTop = "Milimeter";
+                                      // TODO: do something in here
+                                    });
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                  child: Text(
+                    _unitPanelTop,
+                    style: TextStyle(
+                      fontSize: 28.0,
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () => setState(() {
-                        positionPanelActive = "top";
+                        _positionPanelActive = "top";
                       }),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -257,12 +374,12 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                         "1",
                         style: TextStyle(
                           fontSize: 28.0,
-                          color: positionPanelActive == "top"
+                          color: _positionPanelActive == "top"
                               ? ColorAssets.primarySwatchColor
                               : ColorAssets.primaryTextColor,
                         ),
                       ),
-                      Text("Meter"),
+                      Text(_unitDetailPanelTop),
                     ],
                   ),
                 ),
@@ -291,11 +408,121 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("cm"),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          child: Wrap(
+                            children: <Widget>[
+                              ListTile(
+                                title: Text("Kilometer"),
+                                subtitle: Text("km"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 0;
+                                    _unitPanelDown = "km";
+                                    _unitDetailPanelDown = "Kilometer";
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Hektometer"),
+                                subtitle: Text("hm"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 1;
+                                    _unitPanelDown = "hm";
+                                    _unitDetailPanelDown = "Hektometer";
+                                    // TODO: do something in here  
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Dekameter"),
+                                subtitle: Text("dam"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 2;
+                                    _unitPanelDown = "dam";
+                                    _unitDetailPanelDown = "Dekameter";
+                                    // TODO: do something in here  
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Meter"),
+                                subtitle: Text("m"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 3;
+                                    _unitPanelDown = "m";
+                                    _unitDetailPanelDown = "Meter";
+                                    // TODO: do something in here  
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Desimeter"),
+                                subtitle: Text("dm"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 4;
+                                    _unitPanelDown = "dm";
+                                    _unitDetailPanelDown = "Desimeter";
+                                    // TODO: do something in here  
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Centimeter"),
+                                subtitle: Text("cm"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 5;
+                                    _unitPanelDown = "cm";
+                                    _unitDetailPanelDown = "Centimeter";
+                                    // TODO: do something in here
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Milimeter"),
+                                subtitle: Text("mm"),
+                                onTap: () {
+                                  setState(() {
+                                    _indexPanelDown = 6;
+                                    _unitPanelDown = "mm";
+                                    _unitDetailPanelDown = "Milimeter";
+                                    // TODO: do something in here
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: Text(
+                    _unitPanelDown,
+                    style: TextStyle(
+                      fontSize: 24.0,
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () => setState(() {
-                    positionPanelActive = "down";
-                  }),
+                        _positionPanelActive = "down";
+                      }),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -304,12 +531,12 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                         "100",
                         style: TextStyle(
                           fontSize: 28.0,
-                          color: positionPanelActive == "down"
+                          color: _positionPanelActive == "down"
                               ? ColorAssets.primarySwatchColor
                               : ColorAssets.primaryTextColor,
                         ),
                       ),
-                      Text("Centimeter"),
+                      Text(_unitDetailPanelDown),
                     ],
                   ),
                 ),
