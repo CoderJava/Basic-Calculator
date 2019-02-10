@@ -1,10 +1,11 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 6:05 PM
+ * Created by Yudi Setiawan on 2/10/19 10:06 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 11:41 AM
+ * Last modified 2/10/19 10:03 PM
  */
 
 import 'dart:io';
+import 'dart:math';
 
 import 'package:basic_calculator_app/utils/button_calculator.dart';
 import 'package:basic_calculator_app/values/color_assets.dart';
@@ -25,8 +26,8 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   String _unitDetailPanelDown = "Centimeter";
   int _indexPanelTop = 3;
   int _indexPanelDown = 5;
-  int _valuePanelTop = 1;
-  int _valuePanelDown = 100;
+  String _valuePanelTop = "1";
+  String _valuePanelDown = "100";
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +81,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "7",
                         label: "7",
@@ -90,7 +95,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "8",
                         label: "8",
@@ -100,7 +109,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "9",
                         label: "9",
@@ -117,7 +130,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "4",
                         label: "4",
@@ -127,7 +144,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "5",
                         label: "5",
@@ -137,7 +158,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "6",
                         label: "6",
@@ -154,7 +179,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "1",
                         label: "1",
@@ -164,7 +193,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "2",
                         label: "2",
@@ -174,7 +207,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "3",
                         label: "3",
@@ -192,7 +229,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
+                          if (_positionPanelActive == "top") {
+                            updateValuePanelDown(value);
+                          } else {
+                            updateValuePanelTop(value);
+                          }
                         },
                         valueActionOnPressedWithParameter: "0",
                         label: "0",
@@ -222,13 +263,13 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
               Expanded(
                 child: ButtonCalculator(
                   "clear",
-                  actionOnPressed: testing,
+                  actionOnPressed: clearAllValue,
                 ),
               ),
               Expanded(
                 child: ButtonCalculator(
                   "backspace",
-                  actionOnPressed: testing,
+                  actionOnPressed: backspaceValue,
                 ),
               ),
             ],
@@ -236,6 +277,44 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
         ),
       ],
     );
+  }
+
+  void updateValuePanelTop(String value) {
+    _valuePanelDown = (_valuePanelDown == "0"
+        ? value
+        : _valuePanelDown + value);
+    setState(() {
+      int exponent;
+      if (_indexPanelTop < _indexPanelDown) {
+        exponent = _indexPanelDown - _indexPanelTop;
+        double result = int.parse(_valuePanelDown) / pow(10, exponent).toInt();
+        _valuePanelTop = result.toString();
+      } else if (_indexPanelTop > _indexPanelDown) {
+        exponent = _indexPanelTop - _indexPanelDown;
+        int result = int.parse(_valuePanelDown) * pow(10, exponent).toInt();
+        _valuePanelTop = result.toString();
+      } else {
+        _valuePanelTop = _valuePanelDown;
+      }
+    });
+  }
+
+  void updateValuePanelDown(String value) {
+    _valuePanelTop = (_valuePanelTop == "0" ? value : _valuePanelTop + value);
+    setState(() {
+      int exponent;
+      if (_indexPanelTop < _indexPanelDown) {
+        exponent = _indexPanelDown - _indexPanelTop;
+        int result = int.parse(_valuePanelTop) * pow(10, exponent).toInt();
+        _valuePanelDown = result.toString();
+      } else if (_indexPanelTop > _indexPanelDown) {
+        exponent = _indexPanelTop - _indexPanelDown;
+        double result = int.parse(_valuePanelTop) / pow(10, exponent).toInt();
+        _valuePanelDown = result.toString();
+      } else {
+        _valuePanelDown = _valuePanelTop;
+      }
+    });
   }
 
   Column buildPanelConverter() {
@@ -332,7 +411,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 5;
                                       _unitPanelTop = "cm";
                                       _unitDetailPanelTop = "Centimeter";
-                                      // TODO: do something in here  
+                                      // TODO: do something in here
                                     });
                                     Navigator.pop(context);
                                   },
@@ -371,7 +450,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
-                        "1",
+                        _valuePanelTop,
                         style: TextStyle(
                           fontSize: 28.0,
                           color: _positionPanelActive == "top"
@@ -424,6 +503,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 0;
                                     _unitPanelDown = "km";
                                     _unitDetailPanelDown = "Kilometer";
+                                    // TODO: do something in here
                                   });
                                   Navigator.pop(context);
                                 },
@@ -436,7 +516,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 1;
                                     _unitPanelDown = "hm";
                                     _unitDetailPanelDown = "Hektometer";
-                                    // TODO: do something in here  
+                                    // TODO: do something in here
                                   });
                                   Navigator.pop(context);
                                 },
@@ -449,7 +529,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 2;
                                     _unitPanelDown = "dam";
                                     _unitDetailPanelDown = "Dekameter";
-                                    // TODO: do something in here  
+                                    // TODO: do something in here
                                   });
                                   Navigator.pop(context);
                                 },
@@ -462,7 +542,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 3;
                                     _unitPanelDown = "m";
                                     _unitDetailPanelDown = "Meter";
-                                    // TODO: do something in here  
+                                    // TODO: do something in here
                                   });
                                   Navigator.pop(context);
                                 },
@@ -475,7 +555,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 4;
                                     _unitPanelDown = "dm";
                                     _unitDetailPanelDown = "Desimeter";
-                                    // TODO: do something in here  
+                                    // TODO: do something in here
                                   });
                                   Navigator.pop(context);
                                 },
@@ -528,7 +608,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
-                        "100",
+                        _valuePanelDown,
                         style: TextStyle(
                           fontSize: 28.0,
                           color: _positionPanelActive == "down"
@@ -548,7 +628,15 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
     );
   }
 
-  VoidCallback testing() {
-    print("testing");
+  VoidCallback clearAllValue() {
+    setState(() {
+      _valuePanelTop = "0";
+      _valuePanelDown = "0";
+    });
   }
+
+  VoidCallback backspaceValue() {
+
+  }
+
 }
