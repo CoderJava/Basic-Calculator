@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 11:38 AM
+ * Created by Yudi Setiawan on 2/10/19 6:05 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 11:36 AM
+ * Last modified 2/10/19 11:41 AM
  */
 
 import 'dart:io';
@@ -257,7 +257,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return Container(
-                            child: Wrap(
+                            child: ListView(
                               children: <Widget>[
                                 ListTile(
                                   title: Text("Kilometer"),
@@ -414,7 +414,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                       context: context,
                       builder: (BuildContext context) {
                         return Container(
-                          child: Wrap(
+                          child: ListView(
                             children: <Widget>[
                               ListTile(
                                 title: Text("Kilometer"),
