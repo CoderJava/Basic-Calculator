@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 10:06 PM
+ * Created by Yudi Setiawan on 2/10/19 10:24 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 10:03 PM
+ * Last modified 2/10/19 10:22 PM
  */
 
 import 'dart:io';
@@ -280,9 +280,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   }
 
   void updateValuePanelTop(String value) {
-    _valuePanelDown = (_valuePanelDown == "0"
-        ? value
-        : _valuePanelDown + value);
+    if (value.isNotEmpty) {
+      _valuePanelDown = (_valuePanelDown == "0"
+          ? value
+          : _valuePanelDown + value);
+    }
     setState(() {
       int exponent;
       if (_indexPanelTop < _indexPanelDown) {
@@ -300,7 +302,9 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   }
 
   void updateValuePanelDown(String value) {
-    _valuePanelTop = (_valuePanelTop == "0" ? value : _valuePanelTop + value);
+    if (value.isNotEmpty) {
+      _valuePanelTop = (_valuePanelTop == "0" ? value : _valuePanelTop + value);
+    }
     setState(() {
       int exponent;
       if (_indexPanelTop < _indexPanelDown) {
@@ -346,7 +350,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 0;
                                       _unitPanelTop = "km";
                                       _unitDetailPanelTop = "Kilometer";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -359,7 +367,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 1;
                                       _unitPanelTop = "hm";
                                       _unitDetailPanelTop = "Hektometer";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -372,7 +384,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 2;
                                       _unitPanelTop = "dam";
                                       _unitDetailPanelTop = "Dekameter";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -385,7 +401,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 3;
                                       _unitPanelTop = "m";
                                       _unitDetailPanelTop = "Meter";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -398,7 +418,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 4;
                                       _unitPanelTop = "dm";
                                       _unitDetailPanelTop = "Desimeter";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -411,7 +435,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 5;
                                       _unitPanelTop = "cm";
                                       _unitDetailPanelTop = "Centimeter";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -424,7 +452,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                       _indexPanelTop = 6;
                                       _unitPanelTop = "mm";
                                       _unitDetailPanelTop = "Milimeter";
-                                      // TODO: do something in here
+                                      if (_positionPanelActive == "top") {
+                                        updateValuePanelDown("");
+                                      } else {
+                                        updateValuePanelTop("");
+                                      }
                                     });
                                     Navigator.pop(context);
                                   },
@@ -503,7 +535,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 0;
                                     _unitPanelDown = "km";
                                     _unitDetailPanelDown = "Kilometer";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -516,7 +552,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 1;
                                     _unitPanelDown = "hm";
                                     _unitDetailPanelDown = "Hektometer";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -529,7 +569,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 2;
                                     _unitPanelDown = "dam";
                                     _unitDetailPanelDown = "Dekameter";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -542,7 +586,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 3;
                                     _unitPanelDown = "m";
                                     _unitDetailPanelDown = "Meter";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -555,7 +603,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 4;
                                     _unitPanelDown = "dm";
                                     _unitDetailPanelDown = "Desimeter";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -568,7 +620,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 5;
                                     _unitPanelDown = "cm";
                                     _unitDetailPanelDown = "Centimeter";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -581,7 +637,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                                     _indexPanelDown = 6;
                                     _unitPanelDown = "mm";
                                     _unitDetailPanelDown = "Milimeter";
-                                    // TODO: do something in here
+                                    if (_positionPanelActive == "top") {
+                                      updateValuePanelDown("");
+                                    } else {
+                                      updateValuePanelTop("");
+                                    }
                                   });
                                   Navigator.pop(context);
                                 },
@@ -636,7 +696,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   }
 
   VoidCallback backspaceValue() {
-
+    // TODO: do something in here
   }
 
 }
