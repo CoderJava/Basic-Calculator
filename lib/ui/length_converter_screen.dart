@@ -1,7 +1,7 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 10:24 PM
+ * Created by Yudi Setiawan on 2/10/19 10:37 PM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 10:22 PM
+ * Last modified 2/10/19 10:36 PM
  */
 
 import 'dart:io';
@@ -281,9 +281,11 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
 
   void updateValuePanelTop(String value) {
     if (value.isNotEmpty) {
-      _valuePanelDown = (_valuePanelDown == "0"
-          ? value
-          : _valuePanelDown + value);
+      _valuePanelDown =
+          (_valuePanelDown == "0" ? value : _valuePanelDown + value);
+    } else if (value == "0") {
+      _valuePanelDown =
+          (_valuePanelDown != "0" ? _valuePanelDown + value : "0");
     }
     setState(() {
       int exponent;
@@ -304,6 +306,8 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   void updateValuePanelDown(String value) {
     if (value.isNotEmpty) {
       _valuePanelTop = (_valuePanelTop == "0" ? value : _valuePanelTop + value);
+    } else if (value == "0") {
+      _valuePanelTop = (_valuePanelTop != "0" ? _valuePanelTop + value : "0");
     }
     setState(() {
       int exponent;
@@ -696,7 +700,16 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
   }
 
   VoidCallback backspaceValue() {
-    // TODO: do something in here
+    if (_positionPanelActive == "top") {
+      _valuePanelTop = (_valuePanelTop == "0" || _valuePanelTop.length == 1)
+          ? "0"
+          : _valuePanelTop.substring(0, _valuePanelTop.length - 1);
+      updateValuePanelDown("");
+    } else {
+      _valuePanelDown = (_valuePanelDown == "0" || _valuePanelDown.length == 1)
+          ? "0"
+          : _valuePanelDown.substring(0, _valuePanelDown.length - 1);
+      updateValuePanelTop("");
+    }
   }
-
 }
