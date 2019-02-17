@@ -1,12 +1,13 @@
 /*
- * Created by Yudi Setiawan on 2/10/19 10:37 PM
+ * Created by Yudi Setiawan on 2/17/19 8:58 AM
  * Copyright (c) 2019. All right reserved.
- * Last modified 2/10/19 10:36 PM
+ * Last modified 2/17/19 8:57 AM
  */
 
 import 'dart:io';
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:basic_calculator_app/utils/button_calculator.dart';
 import 'package:basic_calculator_app/values/color_assets.dart';
 import 'package:flutter/material.dart';
@@ -225,7 +226,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: ButtonCalculator(
                         "general",
                         actionOnPressedWithParameter: (String value) {
@@ -237,16 +238,6 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                         },
                         valueActionOnPressedWithParameter: "0",
                         label: "0",
-                      ),
-                    ),
-                    Expanded(
-                      child: ButtonCalculator(
-                        "general",
-                        actionOnPressedWithParameter: (String value) {
-                          // TODO: do something in here
-                        },
-                        valueActionOnPressedWithParameter: ".",
-                        label: ".",
                       ),
                     ),
                   ],
@@ -485,7 +476,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Text(
+                      AutoSizeText(
                         _valuePanelTop,
                         style: TextStyle(
                           fontSize: 28.0,
@@ -671,7 +662,7 @@ class LengthConverterScreenState extends State<LengthConverterScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Text(
+                      AutoSizeText(
                         _valuePanelDown,
                         style: TextStyle(
                           fontSize: 28.0,
